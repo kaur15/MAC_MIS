@@ -130,7 +130,7 @@
 
 
             <div class="registration_fields">
-                <form name="register" action="userRegister"  method="post" onsubmit="return reg()" ><br>
+                <form name="register" action="jobs.jsp"  method="post" onsubmit="return reg()" ><br>
                     
                     Student ID:<br> <input type="number" name="StudentID" class="regis_text"><br><br>
                     First Name:<br>  <input type="text" name="FirstName" class="regis_text"><br><br>
