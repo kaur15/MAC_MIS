@@ -34,8 +34,9 @@
 
                     return false;
                 }
-                else if (internship type=== null || internship type === ""){
-                    alert("Please enter the Internship Type")
+                else if (status === null || status === "")
+                {
+                    alert("Please select the status");
                     return false;
                 }
                 else if (position === null || position === "")
@@ -63,11 +64,7 @@
 
                     return false;
                 }
-                else if (status === null || status === "")
-                {
-                    alert("Please select the status");
-                    return false;
-                }
+                
             }
         </script> 
 
@@ -81,7 +78,7 @@
 
             </div>
             <div class="studentregis">
-                 REGISTRATION NOW
+                 New Job
             </div>
             <div class="logo">
 
@@ -90,9 +87,9 @@
 
             <div class="registration_fields">
 
-                    <form name="register" action="userRegister"  method="post" onsubmit="return validate()" ><br>
+                    <form name="register" action="login"  method="post" onSubmit="return validate()" ><br>
                         Job Group:<br> <select class="job group" name="job group" >
-                            <option value="Web Development">Web Development</option>
+                            <option value="Select One">Select One</option>
                             <option value="Mobile Development">Mobile Development</option>
                             <option value="System Development">System Development</option>
                             <option value="Technical Support"> Technical Support</option>
@@ -102,33 +99,31 @@
                             <option value="Security">Security</option>
                             <option value="Data Management">Data Management</option>
                         </select><br><br>
-                        Company:<br>  <select  name="company" >
-                            <option value="Google">Google</option>
+                        Company:<br>  <select  name="company"  >
+                            <option value="Google">University Of Windsor</option>
                             <option value="Microsoft">Microsoft</option>
                             <option value="Infosys">Infosys</option>
                             <option value="Amazon">Amazon</option>
                             <option value="Blackberry">Blackberry</option>
                         </select><br><br>
-                        Internship Type:<br> <select   name="internshiptype" >
-                            <option value="Industry">Industry</option>
-                            <option value="MAC Project">MAC Project</option>
-                            <option value="Other">Other</option>
-                        </select><br><br>
+                        Status:<select  name="Status" >
+                        <option value="UnOpen">UnOpen</option>
+                        <option value="Open">Open</option>
+                        <option value="Close">Close</option>
+                    </select><br><br>
+                        
                     Position:<br>  <input type="text" name="Position"><br><br>
                     Description: <br>  <textarea class="textarea" name="Description"></textarea> <br><br>
                     Responsibilities:    <br>  <input type="text" name="Responsibilities" ><br><br>
                     Requirements:  <input type="text" name="Requirements" ><br><br>
                     Salary :<input type="number" name="Salary" > <br><br>
-                    Status:<select  name="Status" >
-                        <option value="UnOpen">UnOpen</option>
-                        <option value="Open">Open</option>
-                        <option value="Close">Close</option>
-                    </select><br><br>
                     
-                    <input  type="submit"  />
+                    
+                    <input  type="Submit"  />
                 </form>
 
 
             </div>
-    </body>
+        </div>
+        </body>
 </html>

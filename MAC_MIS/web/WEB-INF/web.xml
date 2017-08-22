@@ -20,6 +20,14 @@
         <servlet-name>ContactUs</servlet-name>
         <servlet-class>ContactUs</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewJob</servlet-name>
+        <servlet-class>NewJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Students</servlet-name>
+        <servlet-class>Students</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
         <url-pattern>/ContactUs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewJob</servlet-name>
+        <url-pattern>/NewJob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Students</servlet-name>
+        <url-pattern>/Students</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

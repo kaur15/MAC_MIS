@@ -10,7 +10,7 @@ public class dbconnect {
     {
     try { 
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "1234");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mac", "root", "1234");
         st = con.createStatement();
     }
     catch(SQLException ex)
@@ -22,7 +22,7 @@ public class dbconnect {
     { 
         try
         {
-        String query = "insert into registration values('Vaibhav Jain','','')";
+        String query = "insert into registration values('Amandeep kaur','','')";
         st.executeQuery(query);
         System.out.println("Records from database");
         /*while(rs.next())
