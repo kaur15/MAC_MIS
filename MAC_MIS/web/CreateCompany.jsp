@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Students</title>
+        <title> Create Company</title>
         
         <script>
 
@@ -119,7 +119,7 @@
 
             </div>
             <div>
-                 REGISTRATION NOW
+                 Create Company
             </div>
             <div >
 
@@ -129,18 +129,24 @@
             <div >
                 <form name="register" action="Jobs.jsp"  method="post" onsubmit="return reg()" ><br>
                     
-                    Student ID:<br> <input type="number" name="StudentID" class="regis_text"><br><br>
-                    First Name:<br>  <input type="text" name="FirstName" class="regis_text"><br><br>
-                    Last Name:<br>  <input type="text" name="LastName" class="regis_text"><br><br>
-                    Gender:  <input type="radio" name="sex" value="male">
-                    Male :<input type="radio" name="sex" value="female">Female <br><br>
+                    InternshipType:<br> <select name="InternshipType">
+                        <option value="MAC Project">MAC Project</option>
+                        <option value="Industry">Industry</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+                    CompanyName:<br>  <input type="text" name="CompanyName" class="regis_text"><br><br>
+                    Address:<br>  <input type="text" name="Address" class="regis_text"><br><br>
+                    Company City:  <input type="text" name="CompanyCity" ><br><br>
+                    Postal :<input type="text" name="Postal"> <br><br>
                     Country:    <br>  <input type="text" name="Country" class="regis_text"><br><br>
-                    Semester: <select name="Semester">
-                        <option value="Winter">Winter</option>
-                        <option value="Fall"> Fall </option>
-                    </select><br> <br>
-                    Year:<input type="number" name="Year"  ><br><br>
+                    Province:    <br>  <input type="text" name="Province" class="regis_text"><br><br>
+                    ContactPerson_FirstName:    <br>  <input type="text" name="ContactPerson_FirstName" class="regis_text"><br><br>
+                    ContactPerson_LastName:    <br>  <input type="text" name="ContactPerson_LastName" class="regis_text"><br><br>
+                    ContactPerson_Position:    <br>  <input type="text" name="ContactPerson_Position" class="regis_text"><br><br>
+                    Telephone:    <br>  <input type="text" name="Telephone" class="regis_text"><br><br>
                     Email_id: <br>  <input type="text" name="Email_id" class="regis_text"><br><br>
+                    CompanyWebsite:    <br>  <input type="text" name="CompanyWebsite" class="regis_text"><br><br>
+                    Notes:    <br>  <input type="text" name="Notes" class="regis_text"><br><br>
                    
                                         <input  type="button" value="Create Company"  />
                 </form>

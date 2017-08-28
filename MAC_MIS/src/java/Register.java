@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.awt.Component;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,15 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
-/**  
+/**
  *
  * @author Amandeep kaur
  */
-public class Students extends HttpServlet {
+public class Register extends HttpServlet {
 
- private Component rootPane;
+    private Component rootPane;
     private String STATUS;
 
     /**
@@ -45,20 +42,21 @@ public class Students extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session= request.getSession();
         String ID=request.getParameter("StudentID");
-        String FNAME=request.getParameter("StudentFirstName");
-        String LNAME=request.getParameter("StudentLastName");
+        String FNAME=request.getParameter("FirstName");
+        String LNAME=request.getParameter("LastName");
         String GENDER=request.getParameter("Gender");
         String COUNTRY=request.getParameter("Country");
         String SEMESTER = request.getParameter("Semester");
         String YEAR= request.getParameter("Year");
         String EMAIL_ID=request.getParameter("Email_id");
+        String PASSWORD= request.getParameter("Password");
         
      STATUS = request.getParameter("text");
         try {
               
                   Class.forName("com.mysql.jdbc.Driver");
-                  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "root", "");
-                  PreparedStatement ps = con.prepareStatement("insert into Students values(?,?,?,?,?,?,?,?)");
+                  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "root", "1234");
+                  PreparedStatement ps = con.prepareStatement("insert into register values(studentid,firstname,lastname,gender,country,semester,year,emailid, password)");
                   ps.setString(1,ID);
                   ps.setString(2,FNAME);
                    ps.setString(3,LNAME);
@@ -67,6 +65,7 @@ public class Students extends HttpServlet {
                    ps.setString(6, SEMESTER);
                       ps.setString(7, YEAR);
                   ps.setString(8,EMAIL_ID);
+                  ps.setString(9, PASSWORD);
                       
                         
                       
@@ -79,8 +78,9 @@ public class Students extends HttpServlet {
                      session.setAttribute("session_SEMESTER", SEMESTER);
                      session.setAttribute("session_YEAR",YEAR );
                      session.setAttribute("session_EMAIL_ID",EMAIL_ID);
+                     session.setAttribute("session_PASSWORD", PASSWORD);
 
-                     response.sendRedirect("Profile.jsp");
+                     response.sendRedirect("Register.jsp");
                  
         }
                   catch(IOException | ClassNotFoundException | SQLException e)

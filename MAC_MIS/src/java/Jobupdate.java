@@ -9,9 +9,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amandeep kaur
  */
-public class ContactUs extends HttpServlet {
+public class Jobupdate extends HttpServlet {
 
-
-    /**
+     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
      * <code>POST</code> methods.
@@ -35,36 +31,42 @@ public class ContactUs extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String FIRSTNAME=request.getParameter("FirstName");
-        String LASTNAME=request.getParameter("LastName");
-        String EMAIL=request.getParameter("EmailId");
-        String PHONE=request.getParameter("Phone");
-        String MESSAGE=request.getParameter("Message");
-        try {
+     
+        String JOB_GROUP=request.getParameter("JobGroup");
+        String COMPANY=request.getParameter("Company");
+        String STATUS=request.getParameter("Status");
+        String POSITION=request.getParameter("Position");
+        String DESCRIPTION=request.getParameter("Description");
+         String RESPONSIBILITIES=request.getParameter("Responsibilities");
+        String REQUIREMENTS=request.getParameter(" Requirements");    
+        String SALARY=request.getParameter(" Salary");
+    try
+    {
               
                   Class.forName("com.mysql.jdbc.Driver");
-                  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "root", "1234");
-                  PreparedStatement ps;
-                  ps = con.prepareStatement("insert into ContactUs values(?,?,?,?,?)");
-                  ps.setString(1,FIRSTNAME);
-                  ps.setString(2,LASTNAME);
-                  ps.setString(3,EMAIL);
-                  ps.setString(4,PHONE);
-                  ps.setString(5,MESSAGE);
-                  ps.executeQuery();
-                  response.sendRedirect("ContactUs.jsp");
-
-                    }
-                  catch(IOException | ClassNotFoundException | SQLException e)
+                  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1/job", "root", "1234");
+                  PreparedStatement ps = con.prepareStatement("update job set JOB_GROUP='"+JOB_GROUP+"' ,COMPANY='"+COMPANY+"',STATUS='"+STATUS+"' ,POSITION='"+POSITION+"',DESCRIPTION='"+DESCRIPTION+"',RESPONSIBILITIES='"+RESPONSIBILITIES+"',REQUIREMENTS='"+REQUIREMENTS+"',SALARY='"+SALARY+"'");
+                   ps.executeUpdate();                                                                  
+                  out.print(JOB_GROUP);
+                   out.print(COMPANY);
+                   out.print(STATUS);
+                   out.print(POSITION);
+                   out.print(DESCRIPTION);
+                   out.print(RESPONSIBILITIES);
+                   out.print(REQUIREMENTS);
+                   out.print(SALARY);
+                    response.sendRedirect("JobUpdate.jsp");
+    }
+     catch(Exception e)
                   {
                   System.out.println(e);
                   }
       
-                  }
-    
+    }             
+        
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -80,11 +82,7 @@ public class ContactUs extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -99,13 +97,7 @@ public class ContactUs extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -118,4 +110,3 @@ public class ContactUs extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 }
-

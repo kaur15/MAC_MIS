@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-                <link href="css/style_contactus.css" rel="stylesheet" type="text/css"/>
+                <link href="css/ContactUs.css" rel="stylesheet" type="text/css"/>
  <script>
             function validateform() {
                 var name = document.myform.Email_id.value;
@@ -50,8 +50,8 @@
                      %>
                      
                      <p class="values">       
-                    <a href="Profile.jsp"> <%=FirstNAME%> </a> <br/>
-                    <a href="Logout"> Logout </a>
+                    <a href="Students.jsp"> <%=FirstNAME%> </a> <br/>
+                    <a href="#"> Logout </a>
          </p>
                       
                       
@@ -59,28 +59,54 @@
                       }
                      %>
 
-            <div class="home_subheader">
-                <ul>
-                    <a href="Home.jsp">HOME</a>
-                    <a href="Jobs.jsp">JOBS</a>
-                    <a href="login.jsp">LOGIN</a>
-                    <a href="ContactUs.jsp">CONTACT US</a>
-                    <a href="StudentRegistration.jsp">REGISTRATION</a>
+          <div class="main">
 
-
-                </ul>
-            </div>
-        </div>
-             <div class="home_logos">
-                 <img src="css/images/GoogleDrive_728x90.jpg" height="100px" width="100%" >
-                   
             
-        </div>
-            <div class="contactus">
-                <div class="contactlogo">
-                    <img src="css/images/contact-us-website.jpg" height="100px" width="100%">
+                <div class="home_header">
+                    <div class="upper_left">
+                        <h1>(519)-253-3000</h1>
+                        <h1>email@uwindsor.ca</h1>
+                    </div> 
+                <div class="logo">
+                    <img src="css/images/image14.png" height="100%" width="100%">  
                 </div>
-                <form  name="myform" action="ContactUs" method="Post"  onsubmit="return validateform()">
+                    <div class="upper_right">
+                        <a href="AboutUs">About Us</a> |
+                         <a href="ContactUs" >Contact Us</a> |
+                          <a href="Home.jsp" >Registration</a> 
+                              
+                   
+                    </div>
+                </div>
+               
+                    <div class="nav" >
+                     <ul>
+    <li>
+      <a href="Home.jsp">Home</a>
+    </li>
+    <li>
+      <a href="AboutUs.jsp">About</a>
+    </li>
+    <li>
+      <a href="Register.jsp">Registration</a>
+    </li>
+    <li>
+        <a href="NewJob.jsp">Jobs</a>
+    </li>
+    <li>
+      <a href="ContactUs.jsp">Contact</a>
+    </li>
+  </ul>
+                    </div>
+         <div class="content">
+                <div class="left_side">
+                     <div class="form">
+                    <div class="regis_header">
+                        <h1>REGISTRATION FORM</h1>
+                    </div>
+                             
+            
+                     <form  name="myform" action="ContactUs" method="Post"  onsubmit="return validateform()">
                     <br>   First Name: <input type="text" name="FirstName" class="textfield"><br><br>
                           Last Name: <input type="text" name="LastName" class="textfield"><br><br>
                           Email Id: <input type="text" name="EmailId" class="textfield"><br><br>
@@ -90,12 +116,13 @@
                           <input type="Submit" value="Clear" name="Submit1" class="Submit">
                 </form>
             </div>
+                </div>
             <%
                 
                  if(Email_id==null)
                  {
         %>     
-        <div class="home_login">
+        <div class="right_side">
                 <img src="css/images/User-Administrator-Blue-icon.png" height="50px" width="30%" class="user_login">
                 <form action="Userlogin" method="Post">
                  SIGN-IN<br><br>
@@ -104,7 +131,7 @@
                <font size="4px"> Password: </font><br>
                <input type="password" name="Password1" class="Sign_indesign1"><br><br><br>
                <input type="submit" value="Login" class="button_design">
-               <font size="4px" ><a href="StudentRegistration.jsp"><font color="black">Create New Account </a></font></font>
+               <font size="4px" ><a href="Register.jsp"><font color="black">Create New Account </a></font></font>
                 </form>
                  
                       
@@ -124,18 +151,38 @@
                       <%
                       }
                      %>
-                     <div class="leftbanner">
-                         <img src="css/images/3084793485626002354.jpg" height="100px" width="100%" class="ritebannerpic">
-                     </div>
-                     <div class="ritebanner">
-                         <img src="css/images/vertical-banner.png" height="100px" width="100%" class="ritebannerpic">
-                     </div>
-                     <div class="bottom">
-                         <marquee >
-                             <img src="css/images/14795748476697032401.png" class="marquee"/>
-                             <img src="css/images/d89c7c07de101383fd84f4668ede54b4.png" class="marquee">
-
-                         </marquee>
-                     </div>
+                    <div id="footer">
+		<div>
+			<div class="first">
+				<h3><a href="index.html">Ecothunder</a></h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
+				<div>
+					<p>Telephone. : <span>12345678-90</span></p>
+					<p>Fax : <span>23456789-01</span></p>
+					<p>Email : <span>ask@ecothunder.com</span></p>
+				</div>
+			</div>
+			<div>
+				<h3>Get Social with us!</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
+				<div>
+					<a href="http://facebook.com/freewebsitetemplates" class="facebook" target="_blank"></a>
+					<a href="http://twitter.com/fwtemplates" class="twitter" target="_blank"></a>
+					<a href="#" class="linked-in"></a>
+				</div>
+			</div>
+			<div>
+				<h3>Share your thoughts!</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
+				<form action="#">
+					<label for="subscribe"><input type="text" id="subscribe" maxlength="30" value="email address" /></label>
+					<input class="submit" type="submit" value="" />
+				</form>
+				<p>Copyright &copy; 2011  Ecothunder Incorporated <br />LRP 727 6783 83839 All rights reserved</p>
+			</div>
+		</div>
+      </div>
+              </div>   
     </body>
 </html>
+

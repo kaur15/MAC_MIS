@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
@@ -9,9 +8,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amandeep kaur
  */
-public class ContactUs extends HttpServlet {
-
+public class StudentDelete extends HttpServlet {
+    
 
     /**
      * Processes requests for both HTTP
@@ -35,37 +31,46 @@ public class ContactUs extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String FIRSTNAME=request.getParameter("FirstName");
-        String LASTNAME=request.getParameter("LastName");
-        String EMAIL=request.getParameter("EmailId");
-        String PHONE=request.getParameter("Phone");
-        String MESSAGE=request.getParameter("Message");
-        try {
+       
+        String St_Id=request.getParameter("stId");
+        String FNAME=request.getParameter("fname");
+        String LNAME=request.getParameter("lname");
+        String GENDER=request.getParameter("gender");
+        String COUNTRY=request.getParameter("country");
+        String SEMESTER=request.getParameter("semester");
+       
+        String YEAR=request.getParameter("year");    
+        String EMAIL_ID=request.getParameter("email");
+       
+    try
+    {
               
                   Class.forName("com.mysql.jdbc.Driver");
                   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "root", "1234");
-                  PreparedStatement ps;
-                  ps = con.prepareStatement("insert into ContactUs values(?,?,?,?,?)");
-                  ps.setString(1,FIRSTNAME);
-                  ps.setString(2,LASTNAME);
-                  ps.setString(3,EMAIL);
-                  ps.setString(4,PHONE);
-                  ps.setString(5,MESSAGE);
-                  ps.executeQuery();
-                  response.sendRedirect("ContactUs.jsp");
-
-                    }
-                  catch(IOException | ClassNotFoundException | SQLException e)
+                  PreparedStatement ps = con.prepareStatement("delete register WHERE EMAIL_ID='"+EMAIL_ID+"'");
+                   ps.executeUpdate();
+                   out.print(St_Id);
+                   out.print(FNAME);
+                   out.print(LNAME);
+                   out.print(GENDER);
+                   out.print(COUNTRY);
+                   out.print(SEMESTER);
+                   out.print(YEAR);
+                   out.print(EMAIL_ID);
+                  
+                    response.sendRedirect("StudentDelete.jsp");
+    }
+     catch(Exception e)
                   {
                   System.out.println(e);
                   }
       
-                  }
-    
-    
+    }             
+        
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -80,11 +85,7 @@ public class ContactUs extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -99,13 +100,7 @@ public class ContactUs extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ContactUs.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -117,5 +112,5 @@ public class ContactUs extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
 
+}

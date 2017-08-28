@@ -1,16 +1,15 @@
 <%-- 
     Document   : Home
-    Created on : 14-Aug-2017, 4:49:09 PM
-    Author     : Amandeep kaur
+    Created on : Aug 15, 2017, 12:51:01 PM
+    Author     : Amandeep
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <title>JSP Page</title>
         <link href="css/home.css" rel="stylesheet" type="text/css"/>
  <script>
             function validateform() {
@@ -33,7 +32,7 @@
     </head>
     <body>
         
-        <div class="home">
+        
             <%
                 String FirstNAME = (String) session.getAttribute("session_FNAME");
                 String Email_id = (String) session.getAttribute("session_EMAIL_ID");
@@ -46,13 +45,7 @@
             <%         } else {
             %>
 
-            <p class="values">
-              
-                <a href="Students.jsp"> <%=FirstNAME%> </a> <br/>
-                  <a href="LogOut"> Logout </a>
-            </p>
-
-
+           
             <%
                 }
             %>
@@ -61,8 +54,8 @@
             
                 <div class="home_header">
                     <div class="upper_left">
-                        <a href="Students.jsp"> <%=FirstNAME%> </a> |
-                  <a href="LogOut"> Logout </a>
+                       
+                        <h1><a href="LogOut"> Logout </a></h1>
                     </div> 
                 <div class="logo">
                     <img src="css/images/image14.png" height="100%" width="100%">  
@@ -79,22 +72,20 @@
                     <div class="nav" >
                      <ul>
     <li>
-      <a href="Home.jsp">Home</a>
+      <a href="Admin.jsp">Home</a>
     </li>
+   
     <li>
-      <a href="AboutUs.jsp">About</a>
-    </li>
-    <li>
-      <a href="Register.jsp">Registration</a>
+      <a href="Register.jsp">Students</a>
     </li>
     <li>
         <a href="NewJob.jsp">Jobs</a>
     </li>
     <li>
-      <a href="ContactUs.jsp">Contact</a>
+        <a href="AboutUs.jsp">About Us</a>
     </li>
     <li>
-        <a href="Reports.jsp">Reports</a>
+      <a href="ContactUs.jsp">Contact</a>
     </li>
   </ul>
                     </div>
@@ -102,30 +93,14 @@
                 <div class="body">
                      <img src="css/images/windsor banner.jpg"  class="image1">
                 </div>
-            <div class="content">s
-                <div class="left_side">
-                    
-                    <div class="regis_header">
-                        <h1>LOGIN</h1>
-                    </div>
-                   <form name="myform" action="Home.jsp" method="Post" onsubmit="return validateform()">
-                <font size="4px"> Email_id:</font> <br>
-                <input type="text" name="Email_Id" class="Sign_indesign" > 
-                <font size="4px"> <br><br>Password: </font><br>
-                <input type="password" name="Password1" class="Sign_indesign1" ><br><br><br>
+           
                
-                             <input type="submit" value="Login" class="button_design" onclick="location='Home.jsp'"><br><br>       
-                         
-                <font size="4px" ><a href="Register.jsp"><font color="black">Create New Account </a></font></font>
-                   </form>
-                    </div>
-               
-                <div class="right_side">
+                <div class="inside">
                     <div class="galary">
                     <tr class="image_content">
-                    <tr> <a href="http://www1.uwindsor.ca/bargainingunits/university-files-for-conciliation"><img src="css/images/image2.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <tr><a href="http://www.uwindsor.ca/dailynews/2017-07-12/campers-hatch-plan-engineering-egg-drop"> <img src="css/images/galary4.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-            <tr><a href="http://placeofpromise.ca/" ><img src="css/images/galary3.jpg" height="176px" width="287px"></a></tr>
+              <tr> <a href="http://www1.uwindsor.ca/bargainingunits/university-files-for-conciliation"><img src="css/images/image2.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+             <tr><a href="http://www.uwindsor.ca/dailynews/2017-07-12/campers-hatch-plan-engineering-egg-drop"> <img src="css/images/galary4.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <tr><a href="http://placeofpromise.ca/" ><img src="css/images/galary3.jpg" height="176px" width="287px"></a></tr>&nbsp;&nbsp;&nbsp;
             <td> <a href="http://www.uwindsor.ca/dailynews/2017-06-23/math-project-streamline-companys-distribution-network"><img src="css/images/image4.jpg" height="176px" width="287px"></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
             <td><a href="http://www1.uwindsor.ca/campusrec/forge-fitness-center-and-services"> <img src="css/images/galary5.jpg" height="176px" width="287px"></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
             <td><a href="http://www1.uwindsor.ca/gss/"> <img src="css/images/galary6.jpg" height="176px" width="287px"></a></td>
@@ -137,20 +112,20 @@
   
             
       </div>
-      <div id="footer">
+     <div id="footer">
 		<div>
 			<div class="first">
-                            <h3><img src=""></h3>
-				
+                            <h3><a href="index.html">UNIVERSITY OF WINDSOR</a></h3>
+				<p>The University of Windsor (U of W or UWindsor) is a public comprehensive and research university in Windsor, Ontario, Canada.[2] It is Canada's southernmost university.[3] It has approximately 15,000 full-time and part-time undergraduate students and over 1,000 graduate students</p>
 				<div>
 					<p>Telephone. : <span>12345678-90</span></p>
 					<p>Fax : <span>23456789-01</span></p>
-					<p>Email : <span>ask@ecothunder.com</span></p>
+					<p>Email : <span>ask@uwindsor.ca</span></p>
 				</div>
 			</div>
 			<div>
 				<h3>Get Social with us!</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
+	
 				<div>
 					<a href="http://facebook.com/freewebsitetemplates" class="facebook" target="_blank"></a>
 					<a href="http://twitter.com/fwtemplates" class="twitter" target="_blank"></a>
@@ -159,15 +134,15 @@
 			</div>
 			<div>
 				<h3>Share your thoughts!</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
+				
 				<form action="#">
 					<label for="subscribe"><input type="text" id="subscribe" maxlength="30" value="email address" /></label>
 					<input class="submit" type="submit" value="" />
 				</form>
-				<p>Copyright &copy; 2011  Ecothunder Incorporated <br />LRP 727 6783 83839 All rights reserved</p>
+				<p>Copyright &copy; 2011  UWINDSOR <br />LRP 727 6783 83839 All rights reserved</p>
 			</div>
 		</div>
       </div>
-               
+              </div>   
     </body>
 </html>

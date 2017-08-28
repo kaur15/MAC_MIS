@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Home
-    Created on : 14-Aug-2017, 4:49:09 PM
+    Document   : Facultyregistration
+    Created on : 24-Aug-2017, 7:57:49 PM
     Author     : Amandeep kaur
 --%>
 
@@ -10,67 +10,74 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
-        <link href="css/home.css" rel="stylesheet" type="text/css"/>
- <script>
-            function validateform() {
-                var name = document.myform.Email_id.value;
-                var password = document.myform.Password1.value;
+        <title>  STUDENT Registration Page</title>
+        <link href="css/Students.css" rel="stylesheet" type="text/css"/>
+        <script>
 
 
-                if (name == null || name == "") {
-                    alert("Please enter your Email Id");
+
+            function reg() {
+                var name1 = document.register.StudentFirstName.value;
+                var name2 = document.register.StudentLastName.value;
+                var email1 = document.register.Email_id.value;
+                var phone = document.register.Telephone.value;
+                var password = documnet.register.Password.value;
+                if (name1 === null || name1 === "") {
+                    alert("Please enter the First Name");
+                    return false;
+
+                  }
+                else if (name2 === null || name2 === "") {
+                    alert("Please enter the Last Name");
+
                     return false;
                 }
-                else if (password == null || password == "")
+                else if (email1 === null || email1 === "")
                 {
-                    alert("You should enter your password");
+                    alert("Enter the Email");
+
                     return false;
                 }
 
+                if (!filter.test(email1))
+                {
+                    alert("Please Enter the valid email");
+
+                    return false;
+                }
+                else if (password1 === null || password1 === "")
+                {
+                    alert("Enter the password");
+
+                    return false;
+                }
+                else if (password1.length < 6)
+                {
+                    alert("Your Password must contain 6 digits");
+
+                    return false;
+                }
             }
-</script>
+        </script> 
+
     </head>
     <body>
-        
-        <div class="home">
-            <%
-                String FirstNAME = (String) session.getAttribute("session_FNAME");
-                String Email_id = (String) session.getAttribute("session_EMAIL_ID");
-
-                if (Email_id == null) {
-            %>
-
-
-
-            <%         } else {
-            %>
-
-            <p class="values">
-              
-                <a href="Students.jsp"> <%=FirstNAME%> </a> <br/>
-                  <a href="LogOut"> Logout </a>
-            </p>
-
-
-            <%
-                }
-            %>
-            <div class="main">
+  
+        <div class="main">
 
             
                 <div class="home_header">
                     <div class="upper_left">
-                        <a href="Students.jsp"> <%=FirstNAME%> </a> |
-                  <a href="LogOut"> Logout </a>
+                        <h1>(519)-253-3000</h1>
+                        <h1>email@uwindsor.ca</h1>
                     </div> 
                 <div class="logo">
                     <img src="css/images/image14.png" height="100%" width="100%">  
                 </div>
                     <div class="upper_right">
-                        <a href="AboutUs.jsp">About Us</a> |
-                         <a href="ContactUs.jsp" >Contact Us</a> |
-                          <a href="Home.jsp" >Sign In</a> 
+                        <a href="AboutUs">About Us</a> |
+                         <a href="ContactUs" >Contact Us</a> |
+                          <a href="Register.jsp" >Registration</a> 
                               
                    
                     </div>
@@ -93,36 +100,41 @@
     <li>
       <a href="ContactUs.jsp">Contact</a>
     </li>
-    <li>
-        <a href="Reports.jsp">Reports</a>
-    </li>
   </ul>
                     </div>
                 
-                <div class="body">
-                     <img src="css/images/windsor banner.jpg"  class="image1">
-                </div>
-            <div class="content">s
+            
+            <div class="content">
                 <div class="left_side">
-                    
+                     <div class="form">
                     <div class="regis_header">
-                        <h1>LOGIN</h1>
+                        <h1>STUDENTS</h1>
                     </div>
-                   <form name="myform" action="Home.jsp" method="Post" onsubmit="return validateform()">
-                <font size="4px"> Email_id:</font> <br>
-                <input type="text" name="Email_Id" class="Sign_indesign" > 
-                <font size="4px"> <br><br>Password: </font><br>
-                <input type="password" name="Password1" class="Sign_indesign1" ><br><br><br>
-               
-                             <input type="submit" value="Login" class="button_design" onclick="location='Home.jsp'"><br><br>       
-                         
-                <font size="4px" ><a href="Register.jsp"><font color="black">Create New Account </a></font></font>
-                   </form>
+                  <form name="register" action="Jobs.jsp"  method="post" onclick="return reg()" ><br>
+                    
+                    First Name:<br>  <input type="text" name="FirstName" class="regis_text"><br><br>
+                    Last Name:<br>  <input type="text" name="LastName" class="regis_text"><br><br>
+                    Gender:  <input type="radio" name="sex" value="male">
+                    Male :<input type="radio" name="sex" value="female">Female <br><br>
+                    Country:    <br>  <input type="text" name="Country" class="regis_text"><br><br>
+                    Semester: <select name="Semester">
+                        <option value="Winter">Winter</option>
+                        <option value="Fall"> Fall </option>
+                    </select><br> <br>
+                    Year:<input type="number" name="Year"  ><br><br>
+                    Email_id: <br>  <input type="text" name="Email_id" class="regis_text"><br><br>
+                   
+                                        <input  type="button" value="register" class="button_design" onclick="location='Home.jsp'" />
+                </form>
+                    
                     </div>
+                    </div>
+                    
                
                 <div class="right_side">
-                    <div class="galary">
-                    <tr class="image_content">
+                
+          <img src="css/images/windsor banner.jpg"  class="image1">
+           <tr class="image_content">
                     <tr> <a href="http://www1.uwindsor.ca/bargainingunits/university-files-for-conciliation"><img src="css/images/image2.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
                     <tr><a href="http://www.uwindsor.ca/dailynews/2017-07-12/campers-hatch-plan-engineering-egg-drop"> <img src="css/images/galary4.jpg" height="176px" width="287px"></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
             <tr><a href="http://placeofpromise.ca/" ><img src="css/images/galary3.jpg" height="176px" width="287px"></a></tr>
@@ -130,18 +142,16 @@
             <td><a href="http://www1.uwindsor.ca/campusrec/forge-fitness-center-and-services"> <img src="css/images/galary5.jpg" height="176px" width="287px"></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
             <td><a href="http://www1.uwindsor.ca/gss/"> <img src="css/images/galary6.jpg" height="176px" width="287px"></a></td>
                     </tr>
-        
-                </div>
                 </div>
             </div>
   
             
-      </div>
+    
       <div id="footer">
 		<div>
 			<div class="first">
-                            <h3><img src=""></h3>
-				
+				<h3><a href="index.html">Ecothunder</a></h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat eleifend arcu, sit amet rutrum lectus lobortis quis. Donec aliquam</p>
 				<div>
 					<p>Telephone. : <span>12345678-90</span></p>
 					<p>Fax : <span>23456789-01</span></p>
@@ -168,6 +178,6 @@
 			</div>
 		</div>
       </div>
-               
+              </div>   
     </body>
 </html>
